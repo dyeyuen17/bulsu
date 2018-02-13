@@ -14,7 +14,7 @@ defmodule BulsuWeb.UserController do
   end
 
   def get_data(conn, user_params) do
-    user = Accounts.get_users(user_params["username"])
+    user = Accounts.get_users(user_params["username"], user_params["password"])
 
     conn
     |> render("show.json", %{user: user})
