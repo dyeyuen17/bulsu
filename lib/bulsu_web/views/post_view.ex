@@ -12,6 +12,8 @@ defmodule BulsuWeb.PostView do
 
   def render("post.json", %{post: post}) do
     %{id: post.id,
-      content: post.content}
+      content: post.content,
+      inserted_at: post.inserted_at, 
+    }
   end
 end

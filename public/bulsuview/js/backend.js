@@ -43,7 +43,8 @@ function signin(){
     },
     success: function(res){
       console.log('Success',res);
-      location.href = 'homepage.html';
+        location.href = 'homepage.html';
+        localStorage.setItem("username", res.data.username);
     },
     error : function(res){
       console.log('Error',res);
@@ -53,5 +54,42 @@ function signin(){
 }
 //HOMEPAGE
 function post(){
-  alert('aa');
+  $.ajax({
+    url: 'http://localhost:4000/api/post',
+    type: 'POST',
+    data: {
+      post: {
+        username: localStorage.getItem('username'),
+        content:$('.post').val()
+      }
+    },
+    success: function(res){
+      console.log('S');
+      show();
+    },
+    error: function(res){
+      console.log('E');
+    }
+  });
+}
+//POSTS
+function show(){
+  $.ajax({
+      url: 'http://localhost:4000/api/get-post',
+      type: 'POST',
+      data: {
+      username: localStorage.getItem('username')
+      },
+      success: function(res){
+        get_posts(res);
+      },
+      error: function(res){
+        console.log(res);
+      }
+  });
+}
+function get_posts(res){
+  $.each(res.data, function(i, d){
+      $('.af').append('<h3 class="'+d.id+'">'+ d.content +'</h3>');
+     });
 }
