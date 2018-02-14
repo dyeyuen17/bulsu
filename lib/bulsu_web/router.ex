@@ -24,5 +24,7 @@ defmodule BulsuWeb.Router do
     pipe_through :api
     post "/new", UserController, :create
     post "/login", UserController, :get_data
+    post "/post", PostController, :create
+    post "/get-post", PostController, :get_post
   end
 end

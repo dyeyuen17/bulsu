@@ -21,7 +21,7 @@ defmodule Bulsu.Accounts do
     Repo.all(User)
   end
 
-  def get_users(username, password), do: Repo.get_by(User,[username: username, password: password])
+  def get_users(username, password), do: Repo.get_by!(User,[username: username, password: password])
 
   @doc """
   Gets a single user.

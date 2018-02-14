@@ -21,6 +21,14 @@ defmodule Bulsu.Posts do
     Repo.all(Post)
   end
 
+  def get_post(username) do
+    Post
+    |> where([p], p.username == ^username)
+    |> Repo.all()
+  end
+
+
+
   @doc """
   Gets a single post.
 
@@ -35,7 +43,7 @@ defmodule Bulsu.Posts do
       ** (Ecto.NoResultsError)
 
   """
-  def get_post!(id), do: Repo.get!(Post, id)
+  #def get_post!(id), do: Repo.get!(Post, id)
 
   @doc """
   Creates a post.

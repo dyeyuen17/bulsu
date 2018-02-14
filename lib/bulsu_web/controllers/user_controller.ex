@@ -15,11 +15,8 @@ defmodule BulsuWeb.UserController do
 
   def get_data(conn, user_params) do
     user = Accounts.get_users(user_params["username"], user_params["password"])
-
     conn
     |> render("show.json", %{user: user})
   end
-  def create_post(conn, post_params) do
-    
-  end
+
 end

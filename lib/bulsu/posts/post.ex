@@ -6,14 +6,14 @@ defmodule Bulsu.Posts.Post do
 
   schema "posts" do
     field :content, :string
-
+    field :username, :string
     timestamps()
   end
 
   @doc false
   def changeset(%Post{} = post, attrs) do
     post
-    |> cast(attrs, [:content])
-    |> validate_required([:content])
+    |> cast(attrs, [:content, :username])
+    |> validate_required([:content, :username])
   end
 end
