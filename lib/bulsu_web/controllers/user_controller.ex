@@ -19,4 +19,7 @@ defmodule BulsuWeb.UserController do
     conn
     |> render("show.json", %{user: user})
   end
+  def create_post(conn, post_params) do
+    
+  end
 end

@@ -23,6 +23,6 @@ defmodule BulsuWeb.Router do
   scope "/api", BulsuWeb do
     pipe_through :api
     post "/new", UserController, :create
-    post "/getdata", UserController, :get_data
+    post "/login", UserController, :get_data
   end
 end

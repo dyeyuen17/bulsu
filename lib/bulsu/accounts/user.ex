@@ -21,4 +21,6 @@ defmodule Bulsu.Accounts.User do
     |> validate_required([:firstname, :lastname, :username, :password])
     |> unique_constraint(:username)
   end
+
+  
 end
