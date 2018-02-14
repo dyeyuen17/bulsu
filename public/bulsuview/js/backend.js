@@ -90,6 +90,6 @@ function show(){
 }
 function get_posts(res){
   $.each(res.data, function(i, d){
-      $('.post-container').append('<br>' + d.content +' '+d.inserted_at + '<br>');
+      $('.af').append('<h3 class="'+d.id+'">'+ d.content +'</h3>');
      });
 }
